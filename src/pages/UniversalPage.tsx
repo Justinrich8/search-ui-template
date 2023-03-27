@@ -10,10 +10,11 @@ import {
 } from '@yext/search-ui-react';
 import classNames from 'classnames';
 import { useLayoutEffect } from 'react';
+import { config } from '../config/searchConfig';
 // import { CustomCard } from '../components/CustomCard';
 // import { CustomCard2 } from '../components/CustomCard2';
 // import { CustomSection } from '../components/CustomSection';
-import { config } from '../config';
+  
 
 const visualAutocompleteConfig: VisualAutocompleteConfig = {
   entityPreviewSearcher: provideHeadless({
@@ -38,24 +39,14 @@ const visualAutocompleteConfig: VisualAutocompleteConfig = {
           <DropdownItem
             value={r.name ?? ''}
             key={index + '-' + r.name}
-<<<<<<< HEAD
-            className='flex flex-col mb-3 mr-4 border rounded-md p-3 text-lg hover:bg-gray-100'
-            focusedClassName='flex flex-col mb-3 mr-4 border rounded-md p-3 text-lg bg-gray-100'
-=======
             className='flex flex-col mb-3 mr-4 border border-gray-200 rounded-md p-3 text-lg hover:bg-gray-100'
             focusedClassName='flex flex-col mb-3 mr-4 border border-gray-200 rounded-md p-3 text-lg bg-gray-100'
->>>>>>> 30044ed (Updated files and packages)
             {...dropdownItemProps}
           >
             {r.name}
           </DropdownItem>
         )}
       </div>
-<<<<<<< HEAD
-    )
-  }
-}
-=======
     );
   }
 };
@@ -63,7 +54,6 @@ const visualAutocompleteConfig: VisualAutocompleteConfig = {
 const universalVerticalConfigMap = {
   people: {}
 };
->>>>>>> 30044ed (Updated files and packages)
 
 const customSearchBarCss = {
   searchBarContainer: 'mb-3 text-emerald-800'
@@ -86,13 +76,7 @@ export default function UniversalPage(): JSX.Element {
       <DirectAnswer />
       <ResultsCount />
       <UniversalResults
-<<<<<<< HEAD
-        verticalConfigMap={{
-          people: {}
-        }}
-=======
         verticalConfigMap={universalVerticalConfigMap}
->>>>>>> 30044ed (Updated files and packages)
       />
       {/* Test generic result type  */}
       {/* <UniversalResults
