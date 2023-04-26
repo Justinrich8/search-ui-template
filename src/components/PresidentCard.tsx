@@ -1,7 +1,9 @@
 import { CardProps, useCardAnalyticsCallback, useCardFeedbackCallback } from '@yext/search-ui-react';
 import { useCallback, useState } from 'react';
+import { resolvePackageData } from 'vite';
 
 interface CustomRawDataType {
+  c_photoURL: string;
   c_politicalParty: string;
   name: string;
   c_body: string;
@@ -10,12 +12,7 @@ interface CustomRawDataType {
 }
 
 interface Result {
-  rawData: {
-    name: string;
-    c_politicalParty: string;
-    c_serviceDates: string;
-    c_body: string;
-  };
+  rawData: CustomRawDataType;
 }
 
 function ResultCard({ result }: { result: Result }): JSX.Element {
@@ -27,15 +24,18 @@ function ResultCard({ result }: { result: Result }): JSX.Element {
   };
 
   return (
-    <div className='flex flex-col justify-between border rounded-lg mb-4 p-4 shadow-sm text-blue'>
-      <p><strong>Political Party: </strong>{result.rawData.c_politicalParty}</p>
-      <p><strong>Term:</strong> {result.rawData.c_serviceDates} </p>
-      <p>Bio: {bioText}</p>
-      {result.rawData.c_body.length > 500 && (
-        <button onClick={toggleShowFullBio}>
-          {showFullBio ? 'Show less' : 'Show more'}
-        </button>
-      )}
+    <div className='flex flex-row justify-start border rounded-lg mb-4 p-4 shadow-sm text-blue'>
+      <img className='w-32 h-32 object-cover object-left rounded-lg mr-4' src={result.rawData.c_photoURL} alt="President" />
+      <div className='flex flex-col justify-between'>
+        <p><strong>Political Party: </strong>{result.rawData.c_politicalParty}</p>
+        <p><strong>Term:</strong> {result.rawData.c_serviceDates} </p>
+        <p className='mb-4'>Bio: {bioText}</p>
+        {result.rawData.c_body.length > 500 && (
+          <button onClick={toggleShowFullBio}>
+            {showFullBio ? 'Show less' : 'Show more'}
+          </button>
+        )}
+      </div>
     </div>
   );
 }
