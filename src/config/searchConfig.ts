@@ -5,7 +5,7 @@ export const config = {
   experienceKey: "us_presidents_demo",
   locale: "en",
   experienceVersion: "STAGING", //Include either STAGING or PRODUCTION depending on the config label
-  SandboxEndpoints,
+  endpoints: SandboxEndpoints, //Include for any Sandbox account
   businessId: 3155537, // Business ID for Experience without quotes
 };
 
