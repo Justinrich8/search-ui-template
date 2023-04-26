@@ -6,6 +6,7 @@ import { Navbar } from "./components/Navbar";
 import { PeoplePage } from "./pages/PeoplePage";
 import { ProductsPage } from "./pages/ProductsPage";
 import { LocationsPage } from "./pages/LocationsPage";
+import { PresidentsPage } from "./pages/PresidentsPage";
 import UniversalPage from "./pages/UniversalPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AnalyticsProvider } from "@yext/search-ui-react";
@@ -30,6 +31,7 @@ function App() {
               <Route path="people" element={<PeoplePage />} />
               <Route path="products" element={<ProductsPage />} />
               <Route path="locations" element={<LocationsPage />} />
+              <Route path="presidents" element={<PresidentsPage />} />
             </Routes>
           </BrowserRouter>
         </AnalyticsProvider>

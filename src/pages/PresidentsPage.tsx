@@ -5,7 +5,7 @@ import {
   FilterSearch,
   ResultsCount,
   SearchBar,
-  StandardCard,
+  //StandardCard,
   VerticalResults,
   LocationBias,
   StaticFilters,
@@ -18,14 +18,15 @@ import {
   AlternativeVerticals,
 } from "@yext/search-ui-react";
  import { CustomCard } from '../components/CustomCard';
+import { PresidentCard } from "../components/PresidentCard";
 
 const hierarchicalFacetFieldIds = ["c_hierarchicalFacet"];
 const filterSearchFields = [{ fieldApiName: "name", entityType: "ce_wikiBio" }];
-const employeeFilterConfigs = [
+/*const employeeFilterConfigs = [
   { value: "Consulting" },
   { value: "Technology" },
-];
-const hierarchicalFilterConfigs = [{ value: "Computer & Tablets" }];
+];*/
+//const hierarchicalFilterConfigs = [{ value: "Party" }];
 const alternativeVerticalsConfigMap = {
   presidents: { label: "Presidents" },
 };
@@ -48,16 +49,7 @@ export function PresidentsPage() {
             label="Filters"
           />
           <FilterDivider />
-          <StaticFilters
-            fieldId="c_employeeDepartment"
-            title="Static Employee Department"
-            filterOptions={employeeFilterConfigs}
-          />
-          <StaticFilters
-            fieldId="c_hierarchicalFacet"
-            title="Static Hierarchical Facets"
-            filterOptions={hierarchicalFilterConfigs}
-          />
+
           <NumericalFacets />
           <StandardFacets excludedFieldIds={hierarchicalFacetFieldIds} />
           <HierarchicalFacets
@@ -80,7 +72,7 @@ export function PresidentsPage() {
               hierarchicalFacetsFieldIds={hierarchicalFacetFieldIds}
             />
           </div>
-          <VerticalResults CardComponent={CustomCard} />
+          <VerticalResults CardComponent={PresidentCard} />
           {/* Test generic result type  */}
           {/* <VerticalResults
             CardComponent={CustomCard}
